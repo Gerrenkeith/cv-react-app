@@ -1,3 +1,27 @@
+function Skills(){
+    return (
+        <>
+        <div>
+                <div>
+                    <h3>Skills</h3>
+                </div>
+                <div>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Responsive Design</li>
+                    <li>Git</li>
+                    <li>Github</li>
+                    <li>Debugging</li>
+                    <li>Problem Solving</li>
+                </div>  
+        </div> 
+        <hr/>
+        </>
+    )
+}
+
+
 function Education(){
 
     return (
@@ -5,7 +29,7 @@ function Education(){
             <div>
                 <h3>Education</h3>
             </div>
-            <div>
+            <div className="education">
                 <div>
                     <div>
                         <p>Jul 2021 - Nov 2022</p>
@@ -50,4 +74,4 @@ function Education(){
     )
 }
 
-export { Education };
+export { Education, Skills};

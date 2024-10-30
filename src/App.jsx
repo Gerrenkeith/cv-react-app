@@ -1,8 +1,5 @@
 import './App.css'
 import { useState } from 'react' 
-import { Contacts, Links, Profile } from "./Header.jsx" 
-import { Education, Skills } from "./Body.jsx"
-import Footer from './Footer.jsx'
 import ResumeForm from './ResumeForm.jsx'
 
 function App() {

@@ -1,21 +1,25 @@
-function Contacts(){
+function Contacts({info}){
 
     return (
         <>
-         <h1>Gerren Ballard</h1>
+         <h1>{info.name}</h1>
          <div>
-            <address>6758 Legato Curve, San Antonio, 78252, United States</address>
-            <p>903.357.8834</p>
-            <p>gerren.keith23@gmail.com</p>
+            <address>{info.address}</address>
+            <p>{info.phone}</p>
+            <p>{info.email}</p>
          </div>
-         <hr></hr>
+         <hr/>
+
+
+
+
         </>
     )
 }
 
 
-function Links(){
-
+function Links({info}){
+   const links = info.links.map((link) => ( <li>{link}</li>))
     return (
         <>
             <div>
@@ -24,7 +28,7 @@ function Links(){
                  </div>     
                  <div>
                     <ul>
-                        <li><a>LinkedIn</a></li>
+                        <li><a>{info.links}</a></li>
                         <li><a>Github</a></li>
                     </ul>
                 </div>       

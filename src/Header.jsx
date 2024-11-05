@@ -1,25 +1,22 @@
-function Contacts({info}){
-
+function Contacts({resumeData}){
+    console.log(resumeData)
+ console.log(resumeData.firstName);
     return (
-        <>
-         <h1>{info.name}</h1>
+        <div>
+         <h1>{resumeData.firstName}</h1>
          <div>
-            <address>{info.address}</address>
-            <p>{info.phone}</p>
-            <p>{info.email}</p>
+            <address>{resumeData.address}</address>
+            <p>{resumeData.phone}</p>
+            <p>{resumeData.email}</p>
          </div>
          <hr/>
-
-
-
-
-        </>
+        </div>
     )
 }
 
 
-function Links({info}){
-   const links = info.links.map((link) => ( <li>{link}</li>))
+function Links({resumeData}){
+   const links = resumeData.Links.map((link) => ( <li>{link}</li>))
     return (
         <>
             <div>
@@ -28,8 +25,7 @@ function Links({info}){
                  </div>     
                  <div>
                     <ul>
-                        <li><a>{info.links}</a></li>
-                        <li><a>Github</a></li>
+                        {links}
                     </ul>
                 </div>       
             </div>

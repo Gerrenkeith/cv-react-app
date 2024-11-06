@@ -22,6 +22,7 @@ const handleSubmit = (event) => {
     lastName: event.target.lastName.value,
     email: event.target.email.value,
     phone: event.target.phone.value,
+    Links: []
   
   };
   setResumeData(formData); // Save form data as resume data

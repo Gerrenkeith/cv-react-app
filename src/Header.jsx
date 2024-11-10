@@ -16,7 +16,7 @@ function Contacts({resumeData}){
 
 
 function Links({resumeData}){
-   const links = resumeData.Links.map((link) => ( <li>{link}</li>))
+   const links = resumeData.Links.map((link, index) => ( <li key={index}><a href={link.url}>{link.website}</a></li>))
     return (
         <>
             <div>

@@ -49,12 +49,12 @@ const handleSubmit = (event) => {
     ].filter(skill => skill)
 
     const eduArray = [
-      { date: event.target.eduOne?.value, school: event.target.eduSix?.value, edu: event.target.eduEleven?.value },
-      { date: event.target.eduTwo?.value, school: event.target.eduSeven?.value, edu: event.target.eduTwelve?.value },
-      { date: event.target.eduThree?.value, school: event.target.eduEight?.value, edu: event.target.eduThirteen?.value },
-      { date: event.target.eduFour?.value, school: event.target.eduNine?.value, edu: event.target.eduFourteen?.value },
-      { date: event.target.eduFive?.value, school: event.target.eduTen?.value, edu: event.target.eduFifteen?.value }
-    ].filter(edu => edu.date);
+      { startDate: event.target.eduOne?.value, endDate: event.target.eduSix?.value, school: event.target.eduEleven?.value, edu: event.target.eduSixteen?.value },
+      { startDate: event.target.eduTwo?.value, endDate: event.target.eduSeven?.value, school: event.target.eduTwelve?.value, edu: event.target.eduSeventeen?.value},
+      { startDate: event.target.eduThree?.value, endDate: event.target.eduEight?.value, school: event.target.eduThirteen?.value, edu: event.target.eduEighteen?.value },
+      { startDate: event.target.eduFour?.value, endDate: event.target.eduNine?.value, school: event.target.eduFourteen?.value, edu: event.target.eduNineteen?.value },
+      { startDate: event.target.eduFive?.value, endDate: event.target.eduTen?.value, school: event.target.eduFifteen?.value, edu: event.target.eduTwenty?.value }
+    ].filter(edu => edu.startDate);
 
     const refArray = [
       { name: event.target.refOne?.value, phone: event.target.refSix?.value, email: event.target.refEleven?.value },

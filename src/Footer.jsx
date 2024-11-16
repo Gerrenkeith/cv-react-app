@@ -12,14 +12,18 @@ function Footer({ resumeData }){
          </div>
     ))
 
+    if(displayRef.length){
     return (
+        <>
+        <hr/>
         <div>
             <div>
                 <h3>References:</h3>
             </div>
                 {displayRef}
         </div>
-    )
+        </>
+    )}
 }
 
 export default Footer;

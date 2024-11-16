@@ -25,7 +25,7 @@ function Education({ resumeData }){
     const displayEdu = resumeData.Edu.map((edu) => (
        <div key={edu}> 
             <div>
-                <h4>{edu.date}</h4>
+                <h4>{edu.startDate} - {edu.endDate}</h4>
             </div>
             <div>
                 <h4>{edu.school}</h4>
@@ -44,7 +44,6 @@ function Education({ resumeData }){
                     { displayEdu }
                 </div>
             </div>
-            <hr/>
         </>
     )
 }

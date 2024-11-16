@@ -6,10 +6,10 @@ function ResumeForm({handleSubmit}){
     const skillsContainerRef = useRef(null);
     const refContainerRef = useRef(null);
 
-    const idNum = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",  "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen"]
+    const idNum = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",  "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty"]
     let linksNum = 0; 
-    let eduNum = 0;
-    let skillsNum = 0;
+    let eduNum = 1;
+    let skillsNum = 4;
     let refNum = 0;
 
     function addLinks(event){
@@ -75,30 +75,41 @@ function ResumeForm({handleSubmit}){
   
             const label = document.createElement("label");
               label.setAttribute("htmlFor", `edu${idNum[eduNum]}`);
-              label.textContent = "Date";
+              label.textContent = "Start Date";
   
             const input = document.createElement("input");
               input.setAttribute( "id", `edu${idNum[eduNum]}`);
               input.setAttribute("type", "date")
   
             const label2 = document.createElement("label");
-              label2.setAttribute("htmlFor", `edu${idNum[eduNum + 5]}`)
-              label2.textContent = "School:"
+              label2.setAttribute("htmlFor", `edu${idNum[eduNum + 10]}`)
+              label2.textContent = "School/Company:"
   
               const input2 = document.createElement("input");
-                  input2.setAttribute("id", `edu${idNum[eduNum + 5]}`)
+                  input2.setAttribute("id", `edu${idNum[eduNum + 10]}`)
 
               const label3 = document.createElement("label");
-              label3.setAttribute("htmlFor", `edu${idNum[eduNum + 10]}`)
-              label3.textContent = "Profecional Development:"
+              label3.setAttribute("htmlFor", `edu${idNum[eduNum + 15]}`)
+              label3.textContent = "Professional Development:"
 
               const input3 = document.createElement("textarea");
-              input3.setAttribute("id", `edu${idNum[eduNum + 10]}`)
+              input3.setAttribute("id", `edu${idNum[eduNum + 15]}`)
+
+              const label4 = document.createElement("label")
+              label4.setAttribute("htmlFor", `edu${idNum[eduNum + 5]}`)
+              label4.textContent = "End Date"
+
+              const input4 = document.createElement("input" )
+              input4.setAttribute("id", `edu${idNum[eduNum + 5]}`)
+              input4.setAttribute("type", "date")
   
             educationContainerRef.current.appendChild(div)  
               div.appendChild(label)
               label.appendChild(input)
-  
+            
+              div.appendChild(label4)
+              label4.appendChild(input4)
+
             div.appendChild(label2);
             label2.appendChild(input2)  
 
@@ -183,7 +194,28 @@ function ResumeForm({handleSubmit}){
               <div>
                 <h3>Skill:</h3>
               </div>
-              <div ref={skillsContainerRef}></div>
+              <div ref={skillsContainerRef}>
+                <div>
+                  <label htmlFor="skillOne">
+                    <input type="text"  id="skillOne" required/>
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="skillTwo">
+                    <input type="text"  id="skilltwo" required/>
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="skillThree">
+                    <input type="text"  id="skillThree" required/>
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="skillFour">
+                    <input type="text"  id="skillFour" required/>
+                  </label>
+                </div>
+              </div>
               <button onClick={addSkills}>+</button>
             </fieldset>
             <fieldset>
@@ -191,6 +223,24 @@ function ResumeForm({handleSubmit}){
                 <h3>Education:</h3>
               </div>
               <div ref={educationContainerRef}>
+                <div>
+                  <label htmlFor="eduOne">
+                   Start Date:
+                    <input type="date" id="eduOne" required/>
+                  </label>
+                  <label htmlFor="eduSix">
+                    End Date:
+                    <input type="date" id="eduSix" />
+                  </label>
+                  <label htmlFor="eduEleven">
+                    School/Company:
+                    <input type="text" id="eduEleven" required/>
+                  </label>
+                  <label htmlFor="eduSixteen">
+                    Professional Development:
+                    <textarea type="text"  id="eduSixteen" required/>
+                  </label>
+                </div>  
               </div>
               <button onClick={addEducation}>+</button>
             </fieldset>

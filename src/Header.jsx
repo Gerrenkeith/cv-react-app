@@ -17,7 +17,9 @@ function Contacts({resumeData}){
 
 function Links({resumeData}){
    const links = resumeData.Links.map((link, index) => ( <li key={index}><a href={link.url}>{link.website}</a></li>))
-    return (
+   
+   if(links.length){
+   return (
         <>
             <div>
                 <div>
@@ -31,7 +33,7 @@ function Links({resumeData}){
             </div>
             <hr/>
         </>
-    )
+    )}
 }
 
 function Profile(){

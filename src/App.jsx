@@ -15,59 +15,8 @@ function App() {
     setStage("form");
   }
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const formData = {
-    firstName: event.target.firstName.value,
-    lastName: event.target.lastName.value,
-    email: event.target.email.value,
-    phone: event.target.phone.value,
-    Links: [],
-    Skills: [],
-    Edu: [],
-    Ref: []
-  };
-
-  const linksArray = [
-    { website: event.target.linkOne?.value, url: event.target.linkSix?.value},
-    {website: event.target.linkTwo?.value, url: event.target.linkSeven?.value},
-    {website: event.target.linkThree?.value, url: event.target.linkEight?.value}, 
-    {website: event.target.linkFour?.value, url: event.target.linkNine?.value},
-    {website: event.target.linkFive?.value, url: event.target.linkTen?.value}].filter(link => link.website)
-    
-    const skillsArray = [
-      event.target.skillOne?.value, 
-      event.target.skillTwo?.value,
-      event.target.skillThree?.value,
-      event.target.skillFour?.value,
-      event.target.skillFive?.value,
-      event.target.skillSix?.value,
-      event.target.skillSeven?.value,
-      event.target.skillEight?.value,
-      event.target.skillNine?.value,
-      event.target.skillTen?.value
-    ].filter(skill => skill)
-
-    const eduArray = [
-      { startDate: event.target.eduOne?.value, endDate: event.target.eduSix?.value, school: event.target.eduEleven?.value, edu: event.target.eduSixteen?.value },
-      { startDate: event.target.eduTwo?.value, endDate: event.target.eduSeven?.value, school: event.target.eduTwelve?.value, edu: event.target.eduSeventeen?.value},
-      { startDate: event.target.eduThree?.value, endDate: event.target.eduEight?.value, school: event.target.eduThirteen?.value, edu: event.target.eduEighteen?.value },
-      { startDate: event.target.eduFour?.value, endDate: event.target.eduNine?.value, school: event.target.eduFourteen?.value, edu: event.target.eduNineteen?.value },
-      { startDate: event.target.eduFive?.value, endDate: event.target.eduTen?.value, school: event.target.eduFifteen?.value, edu: event.target.eduTwenty?.value }
-    ].filter(edu => edu.startDate);
-
-    const refArray = [
-      { name: event.target.refOne?.value, phone: event.target.refSix?.value, email: event.target.refEleven?.value },
-      { name: event.target.refTwo?.value, phone: event.target.refSeven?.value, email: event.target.refTwelve?.value },
-      { name: event.target.refThree?.value, phone: event.target.refEight?.value, email: event.target.refThirteen?.value },
-    ].filter( ref => ref.name)
-
-  formData.Links = linksArray;
-  formData.Skills = skillsArray;
-  formData.Edu = eduArray;
-  formData.Ref = refArray;
-  setResumeData(formData); // Save form data as resume data
-  setStage("resume"); // Switch to resume stage
+const handleEditResume = () => {
+  setStage("edit")
 };
 
 console.log(resumeData)
@@ -79,7 +28,7 @@ console.log(resumeData)
       )}
 
       { stage === "form" && (
-        <ResumeForm  setInfo={setResumeData} handleSubmit={handleSubmit}/>
+        <ResumeForm  setResumeData={setResumeData} setStage={setStage}/>
       )}
       {stage === "resume" && resumeData && ( 
         <>
@@ -89,8 +38,12 @@ console.log(resumeData)
         <Skills resumeData={resumeData}/>
         <Education resumeData={resumeData} />
         <Footer resumeData={resumeData} />
+        <button onClick={handleEditResume}>Edit</button>
         </>
       )}      
+      {stage === "edit" && (
+        <ResumeForm setResumeData={setResumeData} setStage={setStage} />
+      )}
     </>
   )
 }

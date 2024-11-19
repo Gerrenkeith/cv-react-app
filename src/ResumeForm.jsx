@@ -1,10 +1,13 @@
 import { useState } from "react";
 
-function ResumeForm({ handleSubmit }) {
+function ResumeForm({setResumeData, setStage}) {
   const [links, setLinks] = useState([]);
   const [skills, setSkills] = useState(["", "", "", ""]);
-  const [education, setEducation] = useState([""]);
+  const [education, setEducation] = useState([{ startDate: "", endDate: "", school: "", development: "" }]);
   const [references, setReferences] = useState([]);
+  const today = new Date();
+
+  console.log(skills)
 
   const addLink = () => {
     if (links.length < 5) {
@@ -41,28 +44,49 @@ function ResumeForm({ handleSubmit }) {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = {
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
+      address: e.target.address.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+      Links: links,
+      Profile: e.target.profile.value,
+      Skills: skills,
+      Edu: education,
+      Ref: references
+    };
+  
+    setResumeData(formData); // Save form data as resume data
+    setStage("resume"); // Switch to resume stage
+  };
+
   return (
     <>
       <h1>Create Resume</h1>
       <form onSubmit={handleSubmit}>
         {/* Basic Info */}
         <fieldset>
-          <label>
-            First name: <input type="text" placeholder="Jon" required />
+          <label htmlFor="firstName">
+            First name: <input id="firstName" type="text" placeholder="Jon" required />
           </label>
-          <label>
-            Last name: <input type="text" placeholder="Snow" required />
+          <label htmlFor="lastName">
+            Last name: <input id="lastName" type="text" placeholder="Snow" required />
           </label>
-          <label>
-            Address: <input type="text" placeholder="123 Crimson Comet Way" required />
+          <label htmlFor="address">
+            Address: <input id="address" type="text" placeholder="123 Crimson Comet Way" required />
           </label>
-          <label>
-            Phone: <input type="text" placeholder="xxx-xxx-xxxx" required />
+          <label htmlFor="phone">
+            Phone: <input id="phone" type="text" placeholder="xxx-xxx-xxxx" required />
           </label>
-          <label>
-            Email: <input type="email" placeholder="abc@resume.com" required />
+          <label htmlFor="email">
+            Email: <input id="email" type="email" placeholder="abc@resume.com" required />
           </label>
         </fieldset>
+
+
 
         {/* Links */}
         <fieldset>
@@ -84,7 +108,6 @@ function ResumeForm({ handleSubmit }) {
                   type="url"
                   value={link.url}
                   onChange={(e) => handleFieldChange(setLinks, index, "url", e.target.value)}
-                  required
                 />
               </label>
             </div>
@@ -93,7 +116,12 @@ function ResumeForm({ handleSubmit }) {
             +
           </button>
         </fieldset>
-
+        <fieldset>
+          <label htmlFor="profile">
+            <h3>Profile:</h3>
+            <textarea id="profile" type="text" />
+          </label>
+        </fieldset>
         {/* Skills */}
         <fieldset>
           <h3>Skills:</h3>
@@ -127,7 +155,7 @@ function ResumeForm({ handleSubmit }) {
                 Start Date:
                 <input
                   type="date"
-                  value={edu.startDate}
+                  defaultValue={today.toLocaleDateString()}
                   onChange={(e) =>
                     handleFieldChange(setEducation, index, "startDate", e.target.value)
                   }
@@ -142,7 +170,6 @@ function ResumeForm({ handleSubmit }) {
                   onChange={(e) =>
                     handleFieldChange(setEducation, index, "endDate", e.target.value)
                   }
-                  required
                 />
               </label>
               <label>

@@ -1,5 +1,5 @@
 function Skills({ resumeData }){
-        const skillsDisplay = resumeData.Skills.map( ( skill ) => ( <li key={skill}>{skill}</li>))
+        const skillsDisplay = resumeData.Skills.map( ( skill, index ) => ( <li key={index}>{skill}</li>))
 
 
     return (
@@ -22,14 +22,14 @@ function Skills({ resumeData }){
 
 function Education({ resumeData }){
 
-    const displayEdu = resumeData.Edu.map((edu) => (
-       <div key={edu}> 
+    const displayEdu = resumeData.Edu.map((edu, index) => (
+       <div key={index}> 
             <div>
                 <h4>{edu.startDate} - {edu.endDate}</h4>
             </div>
             <div>
                 <h4>{edu.school}</h4>
-                <p>{edu.edu}</p>
+                <p>{edu.development}</p>
             </div>
         </div>
         ))

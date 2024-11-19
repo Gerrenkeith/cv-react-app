@@ -36,7 +36,7 @@ function Links({resumeData}){
     )}
 }
 
-function Profile(){
+function Profile({ resumeData }){
 
     return (
         <>
@@ -44,7 +44,7 @@ function Profile(){
                 <h3>Profile</h3>
             </div>
             <div>
-                <p>Passionate web developer with experience in designing, implementing, testing, and maintaining web applications. Proficient in technologies, such as HTML, CSS, JavaScript, and React.js. </p>
+                <p>{resumeData.Profile}</p>
             </div>
             <hr/>
         </>
